@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="collegeApp">
+<head>
+	<title>College Angular App</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="StudentController">
+
+{{greeting()}}
+<form class="form-inline">
+<input ng-model="query" type="text"
+	placeholder="Filter by Subject" autofocus />
+</form>
+<br/>
+
+	<div ng-repeat="subject in student.subjects | filter: aGradeFilter |orderBy: 'marks' ">
+		results for: {{subject.name}} = {{subject.marks}}
+	</div>   
+
+		
+</div>
+</body>
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+</html>
